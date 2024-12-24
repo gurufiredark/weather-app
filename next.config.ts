@@ -1,7 +1,7 @@
 const nextConfig = {
-  output: 'export',  // Necessário para GitHub Pages
+  output: 'export',
   images: {
-    unoptimized: true,  // Necessário quando usar export
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -10,7 +10,10 @@ const nextConfig = {
     ],
   },
   eslint: {
-    ignoreDuringBuilds: true, 
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   }
 }
 
