@@ -39,11 +39,11 @@
 1. **Clone o repositório**:
   git clone https://github.com/gurufiredark/weather-app.git
    ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+      npm run dev
+      # or
+      yarn dev
+      # or
+      pnpm dev
+      # or
+      bun dev
+    ```
