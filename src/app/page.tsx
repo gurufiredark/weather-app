@@ -97,13 +97,18 @@ export default function WheaterApp() {
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["repoData"],
     queryFn: async (): Promise<WeatherData> => {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${place}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&units=metric`
-      );
-      
-      return response.data;
+      try {
+        const API_KEY = process.env.NEXT_PUBLIC_WEATHER_KEY;
+        const response = await axios.get(
+          `https://api.openweathermap.org/data/2.5/forecast?q=${place}&appid=${API_KEY}&units=metric`
+        );
+        return response.data;
+      } catch (error) {
+        console.error('Error fetching weather data:', error);
+        throw error;
+      }
     },
-  });
+});
 
   useEffect(() => {
     refetch();
@@ -111,7 +116,14 @@ export default function WheaterApp() {
 
   const firstData = data?.list[0];
 
-  const uniqueDates = [...new Set(data?.list.map((item) => new Date(item.dt * 1000).toISOString().split("T")[0]))];
+  const uniqueDates = [...new Set(data?.list.map((item) => {
+    try {
+      return new Date(item.dt * 1000).toISOString().split("T")[0];
+    } catch (error) {
+      console.error('Error parsing date:', error);
+      return new Date().toISOString().split("T")[0];
+    }
+  }))];
 
   const firstDataForEachDate =  uniqueDates.map((date) => {
     return data?.list.find((item) => {
