@@ -37,6 +37,7 @@
 ## Como Executar o Projeto
 
 1. **Clone o repositório**:
+  git clone https://github.com/gurufiredark/weather-app.git
    ```bash
 npm run dev
 # or
