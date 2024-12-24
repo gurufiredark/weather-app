@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <head>  
         <title>Weather App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/weather-app/favicon.ico" />
       </head>
       <QueryClientProvider client={queryClient}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
