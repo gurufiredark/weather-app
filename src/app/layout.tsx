@@ -26,6 +26,10 @@ export default function RootLayout({
   const queryClient = new QueryClient()
   return (
     <html lang="en">
+      <head>  
+        <title>Weather App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <QueryClientProvider client={queryClient}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
