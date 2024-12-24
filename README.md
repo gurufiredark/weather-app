@@ -38,6 +38,8 @@
 
 1. **Clone o repositório**:
   git clone https://github.com/gurufiredark/weather-app.git
+
+  execute o comando:
    ```bash
       npm run dev
       # or
@@ -46,4 +48,4 @@
       pnpm dev
       # or
       bun dev
-    ```
+  ```
